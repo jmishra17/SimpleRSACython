@@ -8,8 +8,9 @@ public and private key for large numbers.
 
 I used sage-notebook to time my python vs cython results
 
-[Here is the link](www.google.com)
+![Here is the time statistics for the Python run](http://www.sagenb.org/home/pub/5039) 
 
+![Here is the time statistics for the Cython run](http://www.sagenb.org/home/pub/5038)
 `````Python
 >>> import SimpleRSA
 >>> enc =SimpleRSA.SimpleRSA(23)
