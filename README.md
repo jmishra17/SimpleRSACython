@@ -16,7 +16,7 @@ Since the links may go bogus or sometimes public viewing of the worksheet is dis
 I have made a direct note of the statistics  below.
 
 
-##Python run
+###Python run
 `````Sage
 
 %timeit
@@ -110,8 +110,11 @@ CPU time: 0.04 s,  Wall time: 0.04 s
 `````
 
 
-As visible, the total runtime taken for the 3 different public-key/private-key computation of different
-sizes took	0.23 s CPU time and	0.24 s Wall time in Python whereas it took 0.04 s CPU time and 0.04 Wall
-time in Cython, thereby giving 0.24/0.4 = 6x faster computation time. Since it takes neglible time to
-compute the public-key/private-key in the Cython run, the "Time(seconds)" field dsplays 0 for it. 
+As visible, the total taken to compute 3 different sizes of public-key/private-key is 
+0.23 s CPU time, 0.24 s Wall time in Python and 0.04 s CPU time, 0.04 Wall time in Cython,
+
+Hence, Cython gives 0.24/0.4 = 6x faster computation time. 
+
+Since it takes neglible time tocompute the public-key/private-key in the Cython run, 
+the "Time(seconds)" field dsplays 0 for it. 
 
