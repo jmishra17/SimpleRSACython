@@ -8,31 +8,104 @@ public and private key for large numbers.
 
 I used sage-notebook to time my python vs cython results
 
-![Here is the time statistics for the Python run](http://www.sagenb.org/home/pub/5039) 
+Here are the links for [Python run worksheet](http://www.sagenb.org/home/pub/5039) 
 
-![Here is the time statistics for the Cython run](http://www.sagenb.org/home/pub/5038)
-`````Python
->>> import SimpleRSA
->>> enc =SimpleRSA.SimpleRSA(23)
->>> enc.compute()
-public key (1472, 29)
-private key (1472, 914)
+[Cython run worksheet](http://www.sagenb.org/home/pub/5038). 
 
->>> import SimpleRSA
->>> enc =SimpleRSA.SimpleRSA(1000000)
->>> enc.compute()
-public key (2104893971370, 308193614463)
-private key (2104893971370, 699515598545)
+Since the links may go bogus or sometimes public viewing of the worksheet is disabled
+I have made a direct note of the statistics  below.
 
 
->>> enc =SimpleRSA.SimpleRSA() 
->>> enc.compute()
-public key (10468427810168432640, 9554926832143394029)
-private key (10468427810168432640, 15581655766859127013)
+##Python run
+`````Sage
 
-`````
+%timeit
+test(3,3243524634634234642,3)
 
-Notice that, in the third example, we do not supply an upper bound for indiividual integers that make the public 
-and private key. In this case, the program simply uses `````Python sys.maxsize````` which is equal to 2147483647
+       	
+---------TEST1---------
+Limit = 9730573903902703926
+-------
+('public key', (331952589637151160763879304196608792928L,
+266215717769350224296471097214838017487L))
+('private key', (331952589637151160763879304196608792928L,
+311233166920449679259460214372193210155L))
+-------
+Time(seconds): 0.0784330368042
+---------TEST1---------
 
+
+---------TEST2---------
+Limit = 29191721711708111778
+-------
+('public key', (2079914322757846194559738496003140389747L,
+1939140487188183879722825978824089838081L))
+('private key', (2079914322757846194559738496003140389747L,
+821164300145348097870708784846592592721L))
+-------
+Time(seconds): 0.0769691467285
+---------TEST2---------
+
+
+---------TEST3---------
+Limit = 87575165135124335334
+-------
+('public key', (17314312269908527919940081823819384653760L,
+9218536254616444276568380784360045130673L))
+('private key', (17314312269908527919940081823819384653760L,
+4379715223728159317987009176334796727468L))
+-------
+Time(seconds): 0.0785570144653
+---------TEST3---------
+
+
+CPU time: 0.23 s,  Wall time: 0.24 s`````
+
+
+
+###Cython run
+
+`````Sage 
+	
+%timeit
+test(3,3243524634634234642,3)
+       	
+---------TEST1---------
+Limit = 9730573903903926
+-------
+('public key', (14141557691648328706L, 4630939218726267357L))
+('private key', (14141557691648328706L, 1926730060681417057L))
+-------
+Time(seconds): 0
+---------TEST1---------
+
+
+---------TEST2---------
+Limit = 29191721711711778
+-------
+('public key', (9295157568235870136L, 6334617999918854103L))
+('private key', (9295157568235870136L, 5648631316216411919L))
+-------
+Time(seconds): 0
+---------TEST2---------
+
+
+---------TEST3---------
+Limit = 87575165135135334
+-------
+('public key', (12660957379041249769L, 12299823140815331973L))
+('private key', (12660957379041249769L, 3605631755539055437L))
+-------
+Time(seconds): 0
+---------TEST3---------
+
+
+
+CPU time: 0.04 s,  Wall time: 0.04 s`````
+
+
+As visible, the total runtime taken for the 3 different public-key/private-key computation of different
+sizes took	0.23 s CPU time and	0.24 s Wall time in Python whereas it took 0.04 s CPU time and 0.04 Wall
+time in Cython, thereby giving 0.24/0.4 = 6x faster computation time. Since it takes neglible time to
+compute the public-key/private-key in the Cython run, the "Time(seconds)" field dsplays 0 for it. 
 
