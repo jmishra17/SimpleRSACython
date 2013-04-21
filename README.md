@@ -4,16 +4,13 @@ This program is a Cython version of the previously created SimpleRSA. As seen in
 data types for variables have been declared and cython spcific class model has been used.
 
 The purpose of this implementation is to acquire faster computation for implmenting
-public and private key for large numbers.
+public-key/private-key for large numbers.
 
-I used sage-notebook to time my python vs cython results
-
-Here are the links for [Python run worksheet](http://www.sagenb.org/home/pub/5039) 
-
-[Cython run worksheet](http://www.sagenb.org/home/pub/5038). 
+I used sage-notebook to time my python vs cython results, the links for which
+can be found here ---> [Python run worksheet](http://www.sagenb.org/home/pub/5039), [Cython run worksheet](http://www.sagenb.org/home/pub/5038). 
 
 Since the links may go bogus or sometimes public viewing of the worksheet is disabled
-I have made a direct note of the statistics  below.
+I have made a direct note of the statistics below.
 
 
 ###Python run
@@ -115,6 +112,6 @@ As visible, the total taken to compute 3 different sizes of public-key/private-k
 
 Hence, Cython gives 0.24/0.4 = 6x faster computation time. 
 
-Since it takes neglible time tocompute the public-key/private-key in the Cython run, 
+Since it takes neglible time to compute the public-key/private-key in the Cython run, 
 the "Time(seconds)" field dsplays 0 for it. 
 
