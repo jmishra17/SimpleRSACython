@@ -16,8 +16,7 @@ I have made a direct note of the statistics below.
 ###Python run
 `````Sage
 
-%timeit
-test(3,3243524634634234642,3)
+timeit("test(3,3243524634634234642,3)")
 
        	
 ---------TEST1---------
@@ -57,6 +56,7 @@ Time(seconds): 0.0785570144653
 
 
 CPU time: 0.23 s,  Wall time: 0.24 s
+5 loops, best of 3: 210 ms per loop
 
 
 `````
@@ -102,6 +102,7 @@ Time(seconds): 0
 
 
 CPU time: 0.04 s,  Wall time: 0.04 s
+5 loops, best of 3: 45.8 ms per loop
 
 
 `````
